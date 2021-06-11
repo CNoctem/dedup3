@@ -1,1 +1,3 @@
-module "dedup3"
+module dedup3
+
+go 1.13
