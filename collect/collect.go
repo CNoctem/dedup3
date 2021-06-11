@@ -12,6 +12,7 @@ import (
 func Collect(root, collection string, filter util.Filter) {
 	setList := util.NewSetList()
 	fileCount := 0
+	dirCount := 0
 	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
 		if info.Mode().IsRegular() && hasExtension(info.Name(), filter) {
 			fs, err := util.NewFileStruct(path)
@@ -20,6 +21,8 @@ func Collect(root, collection string, filter util.Filter) {
 			}
 			util.AddTwin(&setList, fs, filter)
 			fileCount++
+		} else if info.IsDir() {
+			dirCount++
 		}
 		return nil
 	})
@@ -27,8 +30,9 @@ func Collect(root, collection string, filter util.Filter) {
 		fmt.Println(err)
 	}
 
-	fmt.Printf("Scanned %d files in %d directories\nCleaning...")
+	fmt.Printf("Scanned %d files in %d directories\nFinding duplicates\n", fileCount, dirCount)
 	setList = util.CleanSetList(setList)
+	fmt.Printf("Found %d duplicates in %d sets\n",setList.NumElements(), setList.NumSets())
 
 	for _, s := range setList.Sets {
 		twinOne, remainderSet := s.Separate()

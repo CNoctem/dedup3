@@ -5,6 +5,7 @@ import (
 	"dedup3/util"
 	"fmt"
 	"os"
+	"path/filepath"
 	"strings"
 )
 
@@ -35,6 +36,10 @@ func main() {
 	filter := parseArgs(switchStart)
 
 	printInit(command, filter, collectionPath)
+	if filter.CheckSize == util.NEQ && command == COLLECT {
+		fmt.Println("--nesize cannot be used with 'collect'")
+		os.Exit(4)
+	}
 
 	if command == COLLECT {
 		collect.Collect(os.Args[1], collectionPath, filter)
@@ -121,7 +126,21 @@ func ftToString(filtertype util.Filtertype) string {
 }
 
 func printHelp() {
-	fmt.Println("help message")
+	fmt.Println("DEDUP3")
+	fmt.Println("Usage:")
+	fmt.Printf("\t%s <path/to/root/directory> <help|list|collect> [path/to/collection] <-s|-d|-S|-D|-f ext1,ext2>\n",
+		filepath.Base(os.Args[0]))
+	fmt.Println("\n\t\thelp:\n\t\t\tprint this message and exit")
+	fmt.Println("\n\t\tlist:\n\t\t\tshow a list of duplicates and take no further action")
+	fmt.Println("\n\t\tcollect path/to/collection:" +
+		"\n\t\t\tcollects duplicates, moves one of them to collection" +
+		"\n\t\t\tand creates links from all duplicate to the one moved to collection")
+	fmt.Println()
+	fmt.Println("\t\t-s|--size: only matches files with same size")
+	fmt.Println("\t\t-d|--date: only matches files with same date")
+	fmt.Println("\t\t-S|--nesize: only matches files with different size (only available with 'list'")
+	fmt.Println("\t\t-D|--nedate: only matches files with different date")
+
 }
 
 func printInit(command cmd, filter util.Filter, collectionPath string) {

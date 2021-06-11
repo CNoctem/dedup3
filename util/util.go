@@ -110,6 +110,18 @@ func AddTwin(setList *SetList, fileStruct FileStruct, filter Filter) {
 	addSet(setList, newSet(fileStruct))
 }
 
+func (sl SetList) NumSets() int {
+	return len(sl.Sets)
+}
+
+func (sl SetList) NumElements() int {
+	e := 0
+	for _, s := range sl.Sets {
+		e += len(s.Elements)
+	}
+	return e
+}
+
 func (s Set) containsTwin(fileStruct FileStruct, f Filter) bool {
 	for k, _ := range s.Elements {
 		if isTwin(k, fileStruct, f) {
