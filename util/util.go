@@ -3,6 +3,7 @@ package util
 import (
 	"errors"
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 	"strings"
@@ -89,6 +90,11 @@ func CleanSetList(sl SetList) SetList {
 }
 
 func NewFileStruct(fullPath string) (FileStruct, error) {
+	fullPath, err := filepath.Abs(fullPath)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("creating file", fullPath)
 	info, err := os.Stat(fullPath)
 	if err != nil {
 		return FileStruct{}, nil

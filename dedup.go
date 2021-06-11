@@ -43,6 +43,10 @@ func main() {
 
 	if command == COLLECT {
 		collect.Collect(os.Args[1], collectionPath, filter)
+	} else if command == LIST {
+		collect.List(os.Args[1], filter)
+	} else if command == HELP {
+		printHelp()
 	}
 }
 
@@ -62,7 +66,7 @@ func parseArgs(switchStart int) util.Filter {
 			checkDate = util.NEQ
 		} else if a == "-f" || a == "--filter" {
 			i++
-			extensions = getExtensions(extensions, i)
+			extensions = getExtensions(i)
 		} else {
 			fmt.Printf("Unknown argument %s\n", a)
 		}
@@ -70,7 +74,7 @@ func parseArgs(switchStart int) util.Filter {
 	return util.NewFilter(checkSize, checkDate, extensions)
 }
 
-func getExtensions(extensions []string, i int) []string {
+func getExtensions(i int) []string {
 	ext := strings.Split(os.Args[i], ",")
 	extensionList := make([]string, 0)
 	for _, e := range ext {

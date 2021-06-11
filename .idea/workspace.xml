@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a9c42304-ad1d-497d-ade2-4d70d1e86ac4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/collect/collect.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/collect.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/dedup.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/dedup.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dedup" beforeDir="false" afterPath="$PROJECT_DIR$/dedup" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dedup.go" beforeDir="false" afterPath="$PROJECT_DIR$/dedup.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/dedup.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/dedup.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/util.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go Application" />
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="C:\Users\Gergely\go\go1.16.5" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1tlAZcwMwFUd7ZrF4M9HnU16gql" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RunManager">
+    <configuration name="go build dedup3" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="dedup3" />
+      <working_directory value="$PROJECT_DIR$" />
+      <parameters value="tmp collect tmp2" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/dedup.go" />
+      <package value="dedup3" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build dedup3" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a9c42304-ad1d-497d-ade2-4d70d1e86ac4" name="Default Changelist" comment="" />
+      <created>1623333358775</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623333358775</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="530" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1623418299950">
+      <screen x="232" y="0" width="1688" height="1080" />
+    </state>
+    <state x="530" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog/232.0.1688.1080/-2560.-356.2560.1050@232.0.1688.1080" timestamp="1623418299950" />
+    <state width="1645" height="295" key="GridCell.Tab.0.bottom" timestamp="1623418302329">
+      <screen x="232" y="0" width="1688" height="1080" />
+    </state>
+    <state width="1645" height="295" key="GridCell.Tab.0.bottom/232.0.1688.1080/-2560.-356.2560.1050@232.0.1688.1080" timestamp="1623418302329" />
+    <state width="1645" height="295" key="GridCell.Tab.0.center" timestamp="1623418302329">
+      <screen x="232" y="0" width="1688" height="1080" />
+    </state>
+    <state width="1645" height="295" key="GridCell.Tab.0.center/232.0.1688.1080/-2560.-356.2560.1050@232.0.1688.1080" timestamp="1623418302329" />
+    <state width="1645" height="295" key="GridCell.Tab.0.left" timestamp="1623418302328">
+      <screen x="232" y="0" width="1688" height="1080" />
+    </state>
+    <state width="1645" height="295" key="GridCell.Tab.0.left/232.0.1688.1080/-2560.-356.2560.1050@232.0.1688.1080" timestamp="1623418302328" />
+    <state width="1645" height="295" key="GridCell.Tab.0.right" timestamp="1623418302329">
+      <screen x="232" y="0" width="1688" height="1080" />
+    </state>
+    <state width="1645" height="295" key="GridCell.Tab.0.right/232.0.1688.1080/-2560.-356.2560.1050@232.0.1688.1080" timestamp="1623418302329" />
+  </component>
+</project>

@@ -10,30 +10,9 @@ import (
 )
 
 func Collect(root, collection string, filter util.Filter) {
-	setList := util.NewSetList()
-	fileCount := 0
-	dirCount := 0
-	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
-		if info.Mode().IsRegular() && hasExtension(info.Name(), filter) {
-			fs, err := util.NewFileStruct(path)
-			if err != nil {
-				log.Println(err)
-			}
-			util.AddTwin(&setList, fs, filter)
-			fileCount++
-		} else if info.IsDir() {
-			dirCount++
-		}
-		return nil
-	})
-	if err != nil {
-		fmt.Println(err)
-	}
+	setList := List(root, filter)
 
-	fmt.Printf("Scanned %d files in %d directories\nFinding duplicates\n", fileCount, dirCount)
-	setList = util.CleanSetList(setList)
-	fmt.Printf("Found %d duplicates in %d sets\n",setList.NumElements(), setList.NumSets())
-
+	fmt.Println("Collecting...")
 	for _, s := range setList.Sets {
 		twinOne, remainderSet := s.Separate()
 		fmt.Println("\n--- ", twinOne.Info.Name(), "{")
@@ -59,6 +38,39 @@ func Collect(root, collection string, filter util.Filter) {
 		}
 		fmt.Println("} ", twinOne.Info.Name())
 	}
+}
+
+func List(root string, filter util.Filter) util.SetList {
+	fmt.Println("Scanning...")
+	setList := util.NewSetList()
+	fileCount := 0
+	dirCount := 0
+	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
+		if info.Mode().IsRegular() && hasExtension(info.Name(), filter) {
+			fs, err := util.NewFileStruct(path)
+			if err != nil {
+				log.Println(err)
+			}
+			util.AddTwin(&setList, fs, filter)
+			fileCount++
+		} else if info.IsDir() {
+			dirCount++
+		}
+		return nil
+	})
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Printf("\nScanned %d files in %d directories\nFinding duplicates...\n", fileCount, dirCount)
+	setList = util.CleanSetList(setList)
+	fmt.Printf("Found %d duplicates in %d sets\n\n", setList.NumElements(), setList.NumSets())
+
+	for _, s := range setList.Sets {
+		fmt.Println(s)
+	}
+
+	return setList
 }
 
 func copyFile(src util.FileStruct, destDir string) (*util.FileStruct, error){
@@ -110,6 +122,9 @@ func removeAndLink(copiedFile, twin util.FileStruct) error {
 }
 
 func hasExtension(file string, filter util.Filter) bool {
+	if len(filter.ExtensionList) == 0 {
+		return true
+	}
 	for _, e := range filter.ExtensionList {
 		if filepath.Ext(file) == e {
 			return true
