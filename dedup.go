@@ -127,19 +127,17 @@ func ftToString(filtertype util.Filtertype) string {
 
 func printHelp() {
 	fmt.Println("DEDUP3")
-	fmt.Println("Usage:")
-	fmt.Printf("\t%s <path/to/root/directory> <help|list|collect> [path/to/collection] <-s|-d|-S|-D|-f ext1,ext2>\n",
+	fmt.Print("Usage:")
+	fmt.Printf(" %s <path/to/root/directory> <help|list|collect> [path/to/collection] <-s|-d|-S|-D|-f ext1,ext2>\n",
 		filepath.Base(os.Args[0]))
-	fmt.Println("\n\t\thelp:\n\t\t\tprint this message and exit")
-	fmt.Println("\n\t\tlist:\n\t\t\tshow a list of duplicates and take no further action")
-	fmt.Println("\n\t\tcollect path/to/collection:" +
-		"\n\t\t\tcollects duplicates, moves one of them to collection" +
-		"\n\t\t\tand creates links from all duplicate to the one moved to collection")
+	fmt.Println("  help:                       print this message and exit")
+	fmt.Println("  list:                       show a list of duplicates and take no further action")
+	fmt.Println("  collect path/to/collection: collects duplicates, moves one of them to collection and creates links")
 	fmt.Println()
-	fmt.Println("\t\t-s|--size: only matches files with same size")
-	fmt.Println("\t\t-d|--date: only matches files with same date")
-	fmt.Println("\t\t-S|--nesize: only matches files with different size (only available with 'list'")
-	fmt.Println("\t\t-D|--nedate: only matches files with different date")
+	fmt.Println("  -s|--size:     only matches files with same size")
+	fmt.Println("  -d|--date:     only matches files with same date")
+	fmt.Println("  -S|--nesize:   only matches files with different size (only available with 'list')")
+	fmt.Println("  -D|--nedate:   only matches files with different date")
 
 }
 
